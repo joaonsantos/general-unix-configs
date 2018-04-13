@@ -25,3 +25,10 @@ chmod 750 ./nord-gnome-terminal/src/nord.sh
 ./nord-gnome-terminal/src/nord.sh
 
 echo -e "\nFinished nord installation...\n"
+
+echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo -e "!!                    Next steps                         !!"
+echo -e "!! Right click your terminal, choose Nord and go into    !!"
+echo -e "!!   profile preferences. Check \"Use Custom Font\" and    !!"
+echo -e "!!     choose one of the source code pro fonts.          !!"
+echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
