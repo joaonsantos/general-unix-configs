@@ -1,6 +1,6 @@
 # File to install vim deps
 
-sudo apt-get install build-essential \
+sudo apt-get install build-essential python3-dev \
     libncurses5-dev libncursesw5-dev \
     libatk1.0-dev libx11-dev \
     libxpm-dev libxt-dev libxtst-dev
