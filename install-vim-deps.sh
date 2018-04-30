@@ -5,6 +5,8 @@ sudo apt-get install build-essential python3-dev \
     libatk1.0-dev libx11-dev \
     libxpm-dev libxt-dev libxtst-dev
 
+# Uninstall VIM
+# sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-gui-common
 
 # Vim configuration command
 # ./configure --with-features=huge \
