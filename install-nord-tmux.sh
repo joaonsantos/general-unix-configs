@@ -6,8 +6,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo -e "\nWill copy .tmux.conf to ~/.tmux.conf...\n"
 
-read -p "This will overwrite your current Tmux configuration. Are you sure? [Nn] " -n 1 -r
-echo    # (optional) move to a new line
+read -p "This will overwrite your current Tmux configuration. Are you sure? [Y/n] " -r
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Proceeding..."
