@@ -5,7 +5,8 @@ echo -e "\nStarting dependencies installation...\n"
 sudo apt-get update
 sudo apt-get install -y util-linux \
                         dconf-tools dconf-gsettings-backend \
-                        dconf-cli dconf-service uuid-runtime
+                        dconf-cli dconf-service uuid-runtime \
+                        git
 
 echo -e "\nFinished dependencies installation.\n"
 
