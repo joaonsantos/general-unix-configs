@@ -7,7 +7,7 @@ set nocompatible
 syntax enable
 filetype plugin on
 
-" Set Tab to be 4 spaces
+" Set Tab to be 2 spaces
 set expandtab
 set tabstop=2
 set softtabstop=2
