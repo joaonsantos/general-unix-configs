@@ -87,3 +87,15 @@ endif
 " Hdima Python Plugin Syntax Options
 let python_highlight_all = 1
 
+" Stuff to remember
+"
+
+"" vimdiff commands
+"
+    "]c :        - next difference
+    "[c :        - previous difference
+    "do          - diff obtain
+    "dp          - diff put
+    "zo          - open folded text
+    "zc          - close folded text
+    ":diffupdate - re-scan the files for differences
