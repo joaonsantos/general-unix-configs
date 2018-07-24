@@ -19,6 +19,11 @@ set encoding=utf-8
 " See relative Line Numbers
 set number
 
+" Handle Tabs
+nnoremap <silent> <C-o> :tabprevious<CR>
+nnoremap <silent> <C-p> :tabnext<CR>
+nnoremap <silent> <C-t> :tabnew<CR>
+
 " Vim Plugins Section
 "
 call plug#begin('~/.vim/plugged')
@@ -35,9 +40,11 @@ Plug 'tpope/vim-fugitive'
 " Add Easymotion Plugin
 Plug 'easymotion/vim-easymotion'
 
-"Add Surround Plugin
+" Add Surround Plugin
 Plug 'tpope/vim-surround'
 
+" Add Additional Python Syntax Plugin
+Plug 'hdima/python-syntax'
 call plug#end()
 
 " Set Colorscheme
@@ -61,7 +68,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Need one more keystroke, but on average, it may be more comfortable.
 nmap s <Plug>(easymotion-overwin-f2)
 "
-" " Turn on case insensitive feature
+" " Turn on Case Insensitive Feature
 let g:EasyMotion_smartcase = 1
 "
 " " JKWB motions: Line motions
@@ -70,9 +77,13 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>b <Plug>(easymotion-b)
 
-" Reset Leader to single slash
+" Reset Leader to Single Slash
 map <Leader> <Plug>(easymotion-prefix)
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
+" Hdima Python Plugin Syntax Options
+let python_highlight_all = 1
+
