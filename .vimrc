@@ -2,6 +2,7 @@
 
 " Enter the current millenium
 set nocompatible
+set term=xterm-256color
 
 " Enable syntax and plugins (for netrw)
 syntax enable
@@ -15,12 +16,20 @@ set tabstop=2       " The width of a TAB is set to 2.
 set shiftwidth=2    " Indents will have a width of 2
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
+set backspace=indent,eol,start
 
 " Set encoding to utf-8
 set encoding=utf-8
 
+" Set highlighted line on cursor
+set cursorline
+
 " See relative Line Numbers
 set number
+
+" TAB completion options
+set wildmode=longest,list,full
+set wildmenu
 
 " Handle Tabs
 nnoremap <silent> <C-o> :tabprevious<CR>
@@ -48,6 +57,9 @@ Plug 'tpope/vim-surround'
 
 " Add Additional Python Syntax Plugin
 Plug 'hdima/python-syntax'
+
+" Add Nerdtree File Explorer Plugin
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Set Colorscheme
@@ -89,6 +101,12 @@ endif
 
 " Hdima Python Plugin Syntax Options
 let python_highlight_all = 1
+
+" Nerdtree configurations
+let NERDTreeQuitOnOpen = 1
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " Stuff to remember
 "
