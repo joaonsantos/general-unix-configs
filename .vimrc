@@ -6,9 +6,19 @@ set term=xterm-256color
 
 " Enable syntax and plugins (for netrw)
 syntax enable
-filetype plugin on
+filetype plugin indent on
+
+" Search settings
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  " case-sensitive otherwise
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
 
 " Set Tab to be 2 spaces
+set smarttab      " insert tabs on the start of a line according to
+                  " shiftwidth, not tabstop
 set tabstop=2       " The width of a TAB is set to 2.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
@@ -24,14 +34,15 @@ set encoding=utf-8
 " Set highlighted line on cursor
 set cursorline
 
-" See relative Line Numbers
+" Set relative line numbers
 set number
 
 " TAB completion options
 set wildmode=longest,list,full
 set wildmenu
 
-" Handle Tabs
+
+" Handle tabs
 nnoremap <silent> <C-o> :tabprevious<CR>
 nnoremap <silent> <C-p> :tabnext<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
