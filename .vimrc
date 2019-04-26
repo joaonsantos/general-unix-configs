@@ -1,6 +1,8 @@
 """" Vim Customizations
 
-" Enter the current millenium
+"" General Settings
+
+" Enter the current millenium (optional since vim8)
 set nocompatible
 set term=xterm-256color
 
@@ -41,8 +43,11 @@ set number
 set wildmode=longest,list,full
 set wildmenu
 
+" Open splits below and right
+set splitbelow
+set splitright
 
-" Handle tabs
+" Handle file tabs
 nnoremap <silent> <C-o> :tabprevious<CR>
 nnoremap <silent> <C-p> :tabnext<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
@@ -57,17 +62,11 @@ Plug 'arcticicestudio/nord-vim'
 " Add Airline Plugin
 Plug 'vim-airline/vim-airline'
 
-" Add Fugitive Git Wrapper Plugin
-Plug 'tpope/vim-fugitive'
-
 " Add Easymotion Plugin
 Plug 'easymotion/vim-easymotion'
 
 " Add Surround Plugin
 Plug 'tpope/vim-surround'
-
-" Add Additional Python Syntax Plugin
-Plug 'hdima/python-syntax'
 
 " Add Nerdtree File Explorer Plugin
 Plug 'scrooloose/nerdtree'
@@ -110,17 +109,11 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" Hdima Python Plugin Syntax Options
-let python_highlight_all = 1
-
 " Nerdtree configurations
 let NERDTreeQuitOnOpen = 1
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
-" Stuff to remember
-"
 
 "" vimdiff commands
 "
