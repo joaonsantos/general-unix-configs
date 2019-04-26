@@ -70,6 +70,13 @@ Plug 'tpope/vim-surround'
 
 " Add Nerdtree File Explorer Plugin
 Plug 'scrooloose/nerdtree'
+
+" Add You Complete Me
+Plug 'valloric/youcompleteme'
+
+" Add Asynchronous Linting Engine (A.L.E)
+Plug 'w0rp/ale'
+
 call plug#end()
 
 " Set Colorscheme
