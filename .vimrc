@@ -122,6 +122,14 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+" You Complete Me configurations
+
+" Goto map
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" Close completion preview tab after exiting insertion
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 "" vimdiff commands
 "
     "]c :        - next difference
