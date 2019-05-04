@@ -79,7 +79,13 @@ Plug 'w0rp/ale'
 
 call plug#end()
 
-" Set Colorscheme
+" Increase comment brightness
+augroup nord-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight Comment ctermfg=14
+augroup END
+
+" Set Colorscheme and increase comment contrast
 colorscheme nord
 
 " Set airline options
