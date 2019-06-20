@@ -47,11 +47,6 @@ set wildmenu
 set splitbelow
 set splitright
 
-" Handle file tabs
-nnoremap <silent> <C-o> :tabprevious<CR>
-nnoremap <silent> <C-p> :tabnext<CR>
-nnoremap <silent> <C-t> :tabnew<CR>
-
 " Vim Plugins Section
 "
 call plug#begin('~/.vim/plugged')
@@ -76,6 +71,9 @@ Plug 'valloric/youcompleteme'
 
 " Add Asynchronous Linting Engine (A.L.E)
 Plug 'w0rp/ale'
+
+" Add Ctrl-p fuzzy explorer
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -135,6 +133,11 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Close completion preview tab after exiting insertion
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Ctrl-p configurations
+
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "" vimdiff commands
 "
