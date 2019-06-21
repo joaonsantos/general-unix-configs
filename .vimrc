@@ -5,7 +5,8 @@
 " Enter the current millenium (optional since vim8)
 set nocompatible
 set term=xterm-256color
-
+" Confirm changes (yes, no, cancel) instead of error
+set confirm
 " Enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin indent on
@@ -138,6 +139,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" General map configurations
+map <C-h> :bn<cr>
+map <C-l> :bp<cr>
+map <C-k> :bd<cr>
+map <leader>s :set spell spelllang=en_gb
 
 "" vimdiff commands
 "
