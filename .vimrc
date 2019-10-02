@@ -58,6 +58,9 @@ Plug 'arcticicestudio/nord-vim'
 " Add Airline Plugin
 Plug 'vim-airline/vim-airline'
 
+" Add GitGutter Plugin
+Plug 'airblade/vim-gitgutter'
+
 " Add Easymotion Plugin
 Plug 'easymotion/vim-easymotion'
 
