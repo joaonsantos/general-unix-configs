@@ -39,7 +39,7 @@ make distclean
             --enable-multibyte \
             --enable-rubyinterp=yes \
             --enable-python3interp=yes \
-            --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
+            --with-python3-config-dir=/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu \
             --enable-perlinterp=yes \
             --enable-luainterp=yes \
             --with-x=yes \
