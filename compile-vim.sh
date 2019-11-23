@@ -5,7 +5,7 @@ sudo apt-get update
 sudo apt-get install -y -qq \
     git \
     build-essential \
-    python3.7-dev
+    python3.7-dev \
     lib64ncurses-dev \
     libcairo2-dev \
     libx11-dev \
