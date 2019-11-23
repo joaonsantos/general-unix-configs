@@ -8,10 +8,7 @@ sudo apt-get install -y -qq \
     lib64ncurses-dev \
     libcairo2-dev \
     libx11-dev \
-    xorg-dev \
-    ruby-dev \
-    liblua5.3-dev \
-    libperl-dev
+    xorg-dev
 
 echo -e "\nFinished dependencies installation.\n"
 
@@ -28,11 +25,8 @@ make distclean
 
 ./configure --with-features=huge \
             --enable-multibyte \
-            --enable-rubyinterp=yes \
             --enable-python3interp=yes \
             --with-python3-config-dir=/usr/lib/python3.7/config-3.7m-x86_64-linux-gnu \
-            --enable-perlinterp=yes \
-            --enable-luainterp=yes \
             --with-x=yes \
             --enable-cscope \
             --prefix=/usr/local
