@@ -2,32 +2,23 @@
 echo -e "\nStarting dependencies installation...\n"
 
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get install -y -qq \
+    git \
     build-essential \
-    libncurses5-dev \
-    libgnome2-dev \
-    libgnomeui-dev \
-    libgtk2.0-dev \
-    libatk1.0-dev \
-    libbonoboui2-dev \
+    lib64ncurses-dev \
     libcairo2-dev \
     libx11-dev \
-    libxpm-dev \
-    libxt-dev \
-    python-dev \
-    python3-dev \
+    xorg-dev \
     ruby-dev \
-    lua5.1 \
-    lua5.1-dev \
-    libperl-dev \
-    xorg-dev
+    liblua5.3-dev \
+    libperl-dev
 
 echo -e "\nFinished dependencies installation.\n"
 
 echo -e "\nStarting the installation process...\n"
 
 cd ~/Downloads/
-git clone https://github.com/vim/vim
+git clone -b master --single-branch https://github.com/vim/vim
 cd vim/src
 
 echo -e "\nStarting vim configuration for compilation...\n"
