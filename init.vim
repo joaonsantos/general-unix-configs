@@ -17,7 +17,7 @@ let mapleader = "\\"
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
+set history=100
 set ruler         " Show the cursor position all the time
 set cursorline    " Set highlighted line on cursor
 set showcmd       " Display incomplete commands
@@ -76,9 +76,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'easymotion/vim-easymotion'  " Add Easymotion Plugin
 Plug 'tpope/vim-surround'         " Add Surround Plugin
 Plug 'scrooloose/nerdtree'        " Add Nerdtree File Explorer Plugin
-Plug 'valloric/youcompleteme'     " Add You Complete Me
-Plug 'w0rp/ale'                   " Add Asynchronous Linting Engine (A.L.E)
-Plug 'ajmwagar/vim-deus'          " Add Vim Deus Colorscheme
 
 call plug#end()
 
@@ -93,9 +90,6 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
 map <Leader>b <Plug>(easymotion-b)
 
-
-map <Leader> <Plug>(easymotion-prefix) " Reset Leader to Single Slash
-
 " Nerdtree configs
 map <C-n> :NERDTreeToggle<CR>
 
@@ -103,10 +97,6 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" You Complete Me configurations
-nnoremap <leader>jd :YcmCompleter GoTo<CR>             " Goto map
-
-let g:ycm_autoclose_preview_window_after_insertion = 1 " Close completion preview tab after exiting insertion
 
 " Filetype Options
 filetype plugin indent on
@@ -131,34 +121,21 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile init.vim.local set filetype=vim
 augroup END
 
-" ALE linting events
-augroup ale
-  autocmd!
-
-  if g:has_async
-    autocmd VimEnter *
-      \ set updatetime=1000 |
-      \ let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Queue(0)
-    autocmd CursorHoldI * call ale#Queue(0)
-    autocmd InsertEnter * call ale#Queue(0)
-    autocmd InsertLeave * call ale#Queue(0)
-  else
-    echoerr "Must be using NeoVim!"
-  endif
-augroup END
-
-" Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
 
 "" Misc Configs
 
 " Switch between the last two files
-nnoremap <Leader>l
+nnoremap <silent> <leader>pf :b#<CR>
+" Open next file
+nnoremap <silent> <leader>nf :bn<CR>
+" Open previous file
+nnoremap <silent> <leader>pf :bp<CR>
 
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
+" Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+
+" Shortcut to source (reload) THIS configuration file after editing it: (s)ource (c)onfiguraiton
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -173,12 +150,4 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-set t_Co=256
-set termguicolors
-
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-set background=dark    " Setting dark mode
-colorscheme deus
-let g:deus_termcolors=256
+colorscheme desert
