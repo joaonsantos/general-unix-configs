@@ -76,19 +76,23 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'easymotion/vim-easymotion'  " Add Easymotion Plugin
 Plug 'tpope/vim-surround'         " Add Surround Plugin
 Plug 'scrooloose/nerdtree'        " Add Nerdtree File Explorer Plugin
+Plug 'ctrlpvim/ctrlp.vim'         " Add Fuzzy Finder
 
 call plug#end()
 
+" Ctrlp configs
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Easymotion configs
-let g:EasyMotion_do_mapping = 0        " Disable default mappings
-let g:EasyMotion_smartcase = 1         " Turn on Case Insensitive Feature
+let g:EasyMotion_do_mapping = 0  " Disable default mappings
+let g:EasyMotion_smartcase = 1   " Turn on Case Insensitive Feature
 
-nmap s <Plug>(easymotion-overwin-f2)
-map <Leader>j <Plug>(easymotion-j)     " JKWB motions: Line motions
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>w <Plug>(easymotion-w)
-map <Leader>b <Plug>(easymotion-b)
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>w <Plug>(easymotion-w)
+map <leader>b <Plug>(easymotion-b)
 
 " Nerdtree configs
 map <C-n> :NERDTreeToggle<CR>
@@ -124,18 +128,21 @@ augroup END
 
 "" Misc Configs
 
-" Switch between the last two files
-nnoremap <silent> <leader>pf :b#<CR>
-" Open next file
-nnoremap <silent> <leader>nf :bn<CR>
-" Open previous file
-nnoremap <silent> <leader>pf :bp<CR>
+" File buffer shortcuts
+nnoremap <silent> <leader>bb :b#<CR>  " Switch between the last two files
+nnoremap <silent> <leader>bn :bn<CR>  " Open next file
+nnoremap <silent> <leader>bp :bp<CR>  " Open previous file
+nnoremap <silent> <leader>bd :bd<CR>  " close buffer
+nnoremap <silent> <leader>bk :bd!<CR> " kill buffer
+nnoremap <silent> <leader>bl :ls<CR>  " list buffers
+nnoremap <silent> <leader>bg :CtrlPBuffer<CR> " list and select buffer
 
 " Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 
-" Shortcut to source (reload) THIS configuration file after editing it: (s)ource (c)onfiguraiton
-nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+" Shortcut to source (reload) THIS configuration file 
+" after editing it: (s)ource (c)onfiguraiton
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>:noh<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
