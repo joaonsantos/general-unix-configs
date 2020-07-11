@@ -5,7 +5,6 @@ sudo pacman -Syu
 sudo pacman -Sqyu \
     git \
     base-devel \
-    python3.8 \
     ncurses \
     libx11
 
