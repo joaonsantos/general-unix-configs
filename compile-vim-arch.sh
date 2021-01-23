@@ -24,7 +24,7 @@ make distclean
 ./configure --with-features=huge \
             --enable-multibyte \
             --enable-python3interp=yes \
-            --with-python3-config-dir=/usr/lib/python3.8/config-3.8m-x86_64-linux-gnu \
+            --with-python3-config-dir=/usr/lib/python3.9/config-3.9m-x86_64-linux-gnu \
             --with-x=yes \
             --enable-cscope \
             --prefix=/usr/local
