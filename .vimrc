@@ -26,12 +26,12 @@ set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   " case-sensitive otherwise
-set hlsearch      " highlight search terms
+set nohlsearch    " don't highlight search terms
 set incsearch     " show search matches as you type
 
 " Set Tab to be 2 spaces
-set smarttab      " insert tabs on the start of a line according to
-                  " shiftwidth, not tabstop
+set smarttab        " insert tabs on the start of a line according to
+                    " shiftwidth, not tabstop
 set tabstop=2       " The width of a TAB is set to 2.
                     " Still it is a \t. It is just that
                     " Vim will interpret it to be having
@@ -88,7 +88,8 @@ augroup END
 "
 call plug#begin('~/.vim/plugged')
 
-Plug 'lifepillar/vim-solarized8'
+" Add solarized colorscheme
+Plug 'altercation/vim-colors-solarized'
 
 " Add Airline Plugin
 Plug 'vim-airline/vim-airline'
@@ -186,5 +187,4 @@ map <leader>l :ALEToggle<CR>
 
 " Set colorscheme
 set background=dark
-set termguicolors
-colorscheme solarized8
+colorscheme solarized
