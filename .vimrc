@@ -89,7 +89,7 @@ augroup END
 call plug#begin('~/.vim/plugged')
 
 " Add solarized colorscheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'ericbn/vim-solarized'
 
 " Add Airline Plugin
 Plug 'vim-airline/vim-airline'
