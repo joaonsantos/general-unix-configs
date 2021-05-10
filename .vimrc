@@ -39,6 +39,7 @@ set tabstop=2       " The width of a TAB is set to 2.
 set shiftwidth=2    " Indents will have a width of 2
 set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
+set nojoinspaces    " No double spaces after full stop
 set backspace=indent,eol,start
 
 
@@ -60,13 +61,10 @@ map <right> <nop>
 " Handle buffers
 map <C-h> :bn<cr>
 map <C-l> :bp<cr>
-map <C-k> :bd<cr>
-map <leader>S :setlocal spell! spelllang=en_gb<CR>
+map <leader>q :bd<cr>
 
 " Splits
 nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>b :split<CR>
-
 
 " Handle different file types
 augroup FileExtentionsGroup
