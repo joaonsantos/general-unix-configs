@@ -20,12 +20,17 @@ echo -e "\nStarting vim configuration for compilation...\n"
 
 # In case it was compiled previously
 make distclean
+make clean
+
+# Just in case use this flag to avoid errors with YCM
+# https://github.com/ycm-core/YouCompleteMe/issues/3760
+ export LD_FLAGS="-rdynamic"
 
 ./configure --with-features=huge \
             --enable-multibyte \
             --enable-python3interp=yes \
-            --with-python3-config-dir=/usr/lib/python3.9/config-3.9m-x86_64-linux-gnu \
             --with-x=yes \
+            --enable-gui=no \
             --enable-cscope \
             --prefix=/usr/local
 
