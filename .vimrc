@@ -1,12 +1,28 @@
-"""" Vim Customizations
+""" Vim Customizations
+
+" Custom keybinds
+"
+" <C-h>     |- next buffer
+" <C-l>     |- previous buffer
+" <leader>q |- delete buffer
+" <leader>e |- edit vimrc quick
+" <leader>A |- toggle linting
+" <leader>g |- go to definition or declaration
+" <leader>d |- show hover information
+" <leader>D |- get documentation
 
 "" General Settings
 
 " Enter the current millenium (optional since vim8)
 set nocompatible
 set encoding=utf-8
-set term=xterm-256color
 set timeoutlen=1000 ttimeoutlen=0
+
+" Set term colors (needed for lightline as well)
+set term=xterm-256color
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " Enable syntax and plugins
 syntax enable
@@ -63,9 +79,6 @@ map <C-h> :bn<cr>
 map <C-l> :bp<cr>
 map <leader>q :bd<cr>
 
-" Splits
-nnoremap <leader>v :vsplit<CR>
-
 " Handle different file types
 augroup FileExtentionsGroup
 autocmd!
@@ -89,60 +102,43 @@ call plug#begin('~/.vim/plugged')
 " Add solarized colorscheme
 Plug 'ericbn/vim-solarized'
 
-" Add Airline Plugin
-Plug 'vim-airline/vim-airline'
+" Add lightline plugin
+ Plug 'itchyny/lightline.vim'
 
-" Add GitGutter Plugin
-Plug 'airblade/vim-gitgutter'
+" Add git branch information plugin
+Plug 'itchyny/vim-gitbranch'
 
-" Add Easymotion Plugin
-"Plug 'easymotion/vim-easymotion'
-
-" Add Nerdtree File Explorer Plugin
+" Add file explorer plugin
 Plug 'scrooloose/nerdtree'
 
-" Add You Complete Me
+" Add completion engine
 Plug 'valloric/youcompleteme'
 
-" Add Asynchronous Linting Engine (A.L.E)
+" Add linting engine
 Plug 'w0rp/ale'
 
-" Add Ctrl-p fuzzy explorer
+" Add fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Add vim surround
 Plug 'tpope/vim-surround'
 
+
 call plug#end()
 
-" Set airline options
+" Lightline configurations
 set laststatus=2
-
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tagbar#flags = 'f'  " show full tag hierarchy
-let g:airline#extensions#ale#enabled = 1
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" Set Easymotion options
-"
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key
-" binding.
-nmap s <Plug>(easymotion-overwin-f2)
-"
-" " Turn on Case Insensitive Feature
-let g:EasyMotion_smartcase = 1
-"
-" " JKWB motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>w <Plug>(easymotion-w)
-map <Leader>b <Plug>(easymotion-b)
+set noshowmode " Don't show the mode, since it shows on status bar
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ },
+\ }
 
 " Nerdtree configurations
 map <C-n> :NERDTreeToggle<CR>
@@ -181,8 +177,13 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-map <leader>l :ALEToggle<CR>
+map <leader>A :ALEToggle<CR>
 
-" Set colorscheme
+" Other keybinds
+"
+" Edit vim config file quickly
+map <leader>e :e $HOME/.vimrc<CR>
+
+" Set colorscheme (must be at the end)
 set background=dark
 colorscheme solarized
