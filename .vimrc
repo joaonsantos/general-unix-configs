@@ -83,10 +83,10 @@ map <leader>q :bd<cr>
 augroup FileExtentionsGroup
 autocmd!
 
-" Make .tex files load like tex files.
+" Make .tex files load like tex files
 autocmd BufNewFile,BufRead *.tex :set ft=tex
 
-" Make .md files load like Markdown files.
+" Make .md files load like Markdown files
 autocmd BufNewFile,BufRead *.md :set ft=markdown
 
 " Make .docker files load as Dockefile
@@ -94,6 +94,9 @@ autocmd BufNewFile,BufRead Dockerfile.* :set ft=dockerfile
 autocmd BufNewFile,BufRead *.docker :set ft=dockerfile
 
 augroup END
+
+" Make it so that .md files get automatically formatted
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Vim Plugins Section
 "
