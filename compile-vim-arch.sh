@@ -1,31 +1,35 @@
-# Dependencies needed to compile vim
+#!/bin/bash
+set -e
 echo -e "\nStarting dependencies installation...\n"
 
-sudo pacman -Syu
-sudo pacman -Sqyu \
+# install deps
+# git - needed for this script
+# gpm - mouse server for console and xterm
+# acl - access control list utilities, libraries and headers
+# glibc - GNU C library
+sudo pacman -Sqyy \
     git \
-    base-devel \
-    ncurses \
-    libx11
-
+    gpm \
+    acl \
+    glibc
 echo -e "\nFinished dependencies installation.\n"
 
 echo -e "\nStarting the installation process...\n"
-
 cd ~/Downloads/
-git clone -b master --single-branch https://github.com/vim/vim
+git clone -b master -depth=1 git@github.com:vim/vim.git
 cd vim/src
 
 echo -e "\nStarting vim configuration for compilation...\n"
 
-# In case it was compiled previously
+# in case it was compiled previously
 make distclean
 make clean
 
-# Just in case use this flag to avoid errors with YCM
+# just in case use this flag to avoid errors with YCM
 # https://github.com/ycm-core/YouCompleteMe/issues/3760
  export LD_FLAGS="-rdynamic"
 
+# note: clipboard support does not work on wayland
 ./configure --with-features=huge \
             --enable-multibyte \
             --enable-python3interp=yes \
@@ -35,14 +39,5 @@ make clean
             --prefix=/usr/local
 
 echo -e "\nThis might take a while...\n"
-
 make && sudo make install
-
 echo -e "\nFinished vim installation...\n"
-
-echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo -e "!!                    Next steps                         !!"
-echo -e "!!         Customize vim with a vimrc file.              !!"
-echo -e "!!                                                       !!"
-echo -e "!!                                                       !!"
-echo -e "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
