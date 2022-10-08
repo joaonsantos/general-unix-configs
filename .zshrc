@@ -16,6 +16,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gcs='git commit -s'
  
 alias bathelp='bat -plhelp'
 help() {
